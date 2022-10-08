@@ -1,23 +1,21 @@
 #include "monty.h"
-
 /**
-* f_push - function that adds node to the stack
-* @head: double head pointer to the stack
-* @counter: line count
-*
-* Return: nothing
+ * f_push - add node to the stack
+ * @head: stack head
+ * @counter: line_number
+ * Return: no return
 */
 void f_push(stack_t **head, unsigned int counter)
 {
-	int i, m = 0, flag = 0;
+	int n, j = 0, flag = 0;
 
 	if (bus.arg)
 	{
 		if (bus.arg[0] == '-')
-			m++;
-		for (; bus.arg[m] != '\0'; m++)
+			j++;
+		for (; bus.arg[j] != '\0'; j++)
 		{
-			if (bus.arg[m] > 57 || bus.arg[m] < 48)
+			if (bus.arg[j] > 57 || bus.arg[j] < 48)
 				flag = 1; }
 		if (flag == 1)
 		{ fprintf(stderr, "L%d: usage: push integer\n", counter);
@@ -31,9 +29,9 @@ void f_push(stack_t **head, unsigned int counter)
 		free(bus.content);
 		free_stack(*head);
 		exit(EXIT_FAILURE); }
-	i = atoi(bus.arg);
+	n = atoi(bus.arg);
 	if (bus.lifi == 0)
-		addnode(head, i);
+		addnode(head, n);
 	else
-		addqueue(head, i);
+		addqueue(head, n);
 }
