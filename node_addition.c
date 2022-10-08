@@ -7,7 +7,7 @@
 *
 * Return: Null
 */
-void _push(stack_t **head, int new)
+void _push(stack_t **head, int add)
 {
 	stack_t *new_node, *temp;
 
@@ -18,7 +18,7 @@ void _push(stack_t **head, int new)
 		exit(0); }
 	if (temp)
 		temp->prev = new_node;
-	new_node->new = new;
+	new_node->add = add;
 	new_node->next = *head;
 	new_node->prev = NULL;
 	*head = new_node;
